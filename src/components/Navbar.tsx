@@ -62,6 +62,14 @@ const Navbar: React.FC = () => {
                             SKILLS
                         </Button>
                     </AnchorLink>
+                    <a href='https://masu-no-blog.com/' target='_blank' rel='noopener noreferrer external' style={{
+                        textDecoration: 'none',
+                        color: 'inherit'
+                    }}>
+                        <Button color='inherit'>
+                            BLOG
+                        </Button>
+                    </a>
                     <AnchorLink href='#contact' style={{
                         textDecoration: 'none',
                         color: 'inherit'
