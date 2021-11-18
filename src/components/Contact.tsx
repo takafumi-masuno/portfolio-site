@@ -39,19 +39,14 @@ const Contact: React.FC = () => {
           </Typography>
         </Box>
         <Box className={classes.root} display='flex' justifyContent='center' p={1}>
-          <Link href='#' color='inherit'>
+          <Link href='mailto:masuno.official@gmail.com' color='inherit'>
             <Avatar className={classes.green}>
               <MailIcon />
             </Avatar>
           </Link>
-          <Link href='#' color='inherit'>
+          <Link href='https://twitter.com/engineer_masuno' color='inherit'>
             <Avatar className={classes.blue}>
               <TwitterIcon />
-            </Avatar>
-          </Link>
-          <Link href='#' color='inherit'>
-            <Avatar className={classes.purple}>
-              <GitHubIcon />
             </Avatar>
           </Link>
         </Box>
