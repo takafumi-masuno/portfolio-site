@@ -1,88 +1,85 @@
+import { AppBar, Toolbar, Button } from "@material-ui/core";
+import Img from "../images/logo.png";
+import styled from "styled-components";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
-import React from 'react';
-import { AppBar, Toolbar, Button, makeStyles, Theme, useTheme } from '@material-ui/core'
-import AnchorLink from 'react-anchor-link-smooth-scroll';
-import Img from '../images/logo.png'
-import styled from 'styled-components'
+const Logo = styled.img`
+  height: 50px;
+  text-align: left;
+  object-fit: contain;
+  &:hover {
+    cursor: pointer;
+  }
+`;
 
-const useStyles = (theme: Theme) => {
-    return makeStyles({
-        root: {
-            flexGrow: 1
-        },
-        flex: {
-            flex:1
-        },
-        menuButton: {
-            marginLeft: -12,
-            marginRight:20
-        },
-        toolbarMargin: theme.mixins.toolbar,
-        img: {
-            height: 50,
-            textAlign: 'left',
-            objectFit: 'contain',
-        }
-    })
-}
-
-const Navbar: React.FC = () => {
-    const theme = useTheme()
-    const styles = useStyles(theme)()
-    return (
-        <div className={styles.root}>
-            <AppBar
-                color='default'
-                position='fixed'
-                style={{ alignItems: 'center'}}
+const Navbar = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const homeMove = () => {
+    navigate("/");
+  };
+  return (
+    <div style={{ flexGrow: 1, height: "64px" }}>
+      <AppBar color="default" position="fixed">
+        <Toolbar>
+          <Logo alt="logo" src={Img} onClick={homeMove} />
+          <div
+            style={{ flexGrow: 1, display: "flex", justifyContent: "center" }}
+          >
+            {location.pathname !== "/" && (
+              <Link
+                to="/"
+                style={{
+                  textDecoration: "none",
+                  color: "inherit",
+                }}
+              >
+                <Button>HOME</Button>
+              </Link>
+            )}
+            <Link
+              to="/about"
+              style={{
+                textDecoration: "none",
+                color: "inherit",
+              }}
             >
-                <Toolbar>
-                <img alt='logo' src={Img} className={styles.img}/>
-                    <AnchorLink href='#home' style={{
-                        textDecoration: 'none',
-                        color: 'inherit'
-                    }}>
-                        <Button>
-                            HOME
-                        </Button>
-                    </AnchorLink>
-                    <AnchorLink href='#about' style={{
-                        textDecoration: 'none',
-                        color: 'inherit'
-                    }}>
-                        <Button color='inherit'>
-                            ABOUT
-                        </Button>
-                    </AnchorLink>
-                    <AnchorLink href='#skills' style={{
-                        textDecoration: 'none',
-                        color: 'inherit'
-                    }}>
-                        <Button color='inherit'>
-                            SKILLS
-                        </Button>
-                    </AnchorLink>
-                    <a href='https://masu-no-blog.com/' target='_blank' rel='noopener noreferrer external' style={{
-                        textDecoration: 'none',
-                        color: 'inherit'
-                    }}>
-                        <Button color='inherit'>
-                            BLOG
-                        </Button>
-                    </a>
-                    <AnchorLink href='#contact' style={{
-                        textDecoration: 'none',
-                        color: 'inherit'
-                    }}>
-                        <Button color='inherit'>
-                            Contact
-                        </Button>
-                    </AnchorLink>
-                </Toolbar>
-            </AppBar>
-            <div className={styles.toolbarMargin}/>
-        </div>
-    )
-}
+              <Button color="inherit">ABOUT</Button>
+            </Link>
+            <Link
+              to="/skills"
+              style={{
+                textDecoration: "none",
+                color: "inherit",
+              }}
+            >
+              <Button color="inherit">SKILLS</Button>
+            </Link>
+            <a
+              href="https://masu-no-blog.com/"
+              target="_blank"
+              rel="noopener noreferrer external"
+              style={{
+                textDecoration: "none",
+                color: "inherit",
+              }}
+            >
+              <Button color="inherit">BLOG</Button>
+            </a>
+            <Link
+              to="/contact"
+              style={{
+                textDecoration: "none",
+                color: "inherit",
+              }}
+            >
+              <Button color="inherit">Contact</Button>
+            </Link>
+          </div>
+        </Toolbar>
+      </AppBar>
+    </div>
+  );
+};
 
 export default Navbar;

@@ -1,63 +1,55 @@
+import { Link, Avatar } from "@material-ui/core";
+import MailIcon from "@material-ui/icons/Mail";
+import TwitterIcon from "@material-ui/icons/Twitter";
+import GitHubIcon from "@material-ui/icons/GitHub";
+import { Box, Text } from "rebass";
+import styled from "styled-components";
+import { StyledBox } from "./Home";
 
-import React from 'react'
-import { Box, Typography, makeStyles, Link, Avatar } from '@material-ui/core'
-import MailIcon from '@material-ui/icons/Mail'
-import TwitterIcon from '@material-ui/icons/Twitter'
-import GitHubIcon from '@material-ui/icons/GitHub'
-import { green, blue, purple } from '@material-ui/core/colors'
+const MailAvater = styled(Avatar)`
+  background-color: #4caf50;
+  color: #fff;
+`;
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: 'flex',
-    '& > *': {
-      margin: theme.spacing(1),
-    },
-  },
-  green: {
-    color: '#fff',
-    backgroundColor: green[500],
-  },
-  blue: {
-    color: theme.palette.getContrastText(blue[500]),
-    backgroundColor: blue[500],
-  },
-  purple: {
-    color: theme.palette.getContrastText(purple[500]),
-    backgroundColor: purple[500],
-  },
-}));
+const TwitterAvater = styled(Avatar)`
+  background-color: #2196f3;
+`;
 
-const Contact: React.FC = () => {
-  const classes = useStyles();
-
+const Contact = () => {
   return (
-    <>
-      <Box p={2}>
-        <Box display='flex' justifyContent='center' p={1} >
-          <Typography variant='h5' >
-            Contact
-          </Typography>
-        </Box>
-        <Box className={classes.root} display='flex' justifyContent='center' p={1}>
-          <Link href='#' color='inherit'>
-            <Avatar className={classes.green}>
-              <MailIcon />
-            </Avatar>
-          </Link>
-          <Link href='#' color='inherit'>
-            <Avatar className={classes.blue}>
-              <TwitterIcon />
-            </Avatar>
-          </Link>
-          <Link href='#' color='inherit'>
-            <Avatar className={classes.purple}>
-              <GitHubIcon />
-            </Avatar>
-          </Link>
-        </Box>
-      </Box>
-    </>
+    <Box p={2}>
+      <StyledBox>
+        <Text as="h1">Contact</Text>
+      </StyledBox>
+      <StyledBox>
+        <Link href="mailto:masuno.official@gmail.com" style={{ margin: "8px" }}>
+          <MailAvater>
+            <MailIcon />
+          </MailAvater>
+        </Link>
+        <Link
+          href="https://twitter.com/engineer_masuno"
+          target="_blank"
+          rel="noopener noreferrer external"
+          style={{ margin: "8px" }}
+        >
+          <TwitterAvater>
+            <TwitterIcon />
+          </TwitterAvater>
+        </Link>
+        <Link
+          href="https://github.com/takafumi-masuno"
+          target="_blank"
+          rel="noopener noreferrer external"
+          style={{ margin: "8px" }}
+        >
+          <Avatar>
+            <GitHubIcon />
+          </Avatar>
+        </Link>
+      </StyledBox>
+    </Box>
   );
-}
+};
 
 export default Contact;

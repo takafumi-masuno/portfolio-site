@@ -1,52 +1,57 @@
+import { Card, CardActionArea, CardContent } from "@material-ui/core";
+import { Box, Text } from "rebass";
+import styled from "styled-components";
 
-import React from "react";
-import { Box, Card, CardContent, makeStyles, Typography } from "@material-ui/core";
+const SkillCard = styled(Card)`
+  width: 730px;
+  max-width: 100%;
+  background-color: gray;
+  color: white;
+`;
 
-const useStyles = makeStyles({
-    root: {
-        width: 730,
-        maxWidth: '100%',
-    },
-});
+const CardItem = ({
+  label,
+  description,
+}: {
+  label: string;
+  description: string;
+}) => {
+  return (
+    <SkillCard>
+      <CardActionArea>
+        <CardContent>
+          <Text as="h2" sx={{ fontSize: "24px" }}>
+            {label}
+          </Text>
+          <Text fontSize="20px">{description}</Text>
+        </CardContent>
+      </CardActionArea>
+    </SkillCard>
+  );
+};
 
-const Skills: React.FC = () => {
-    const classes = useStyles();
-
-    return (
-        <>
-            <Box p={2}>
-                <Box display='flex' justifyContent='center' p={1} >
-                    <Typography variant='h5'>
-                        Skills
-                    </Typography>
-                </Box>
-                <Box display='flex' justifyContent='center' p={1} >
-                    <Card className={classes.root}>
-                        <CardContent>
-                            <Typography variant="h6">
-                                言語
-                            </Typography>
-                            <Typography color="textSecondary">
-                                JavaScript / TypeScript / Python
-                            </Typography>
-                        </CardContent>
-                    </Card>
-                </Box>
-                <Box display='flex' justifyContent='center' p={1} >
-                    <Card className={classes.root}>
-                        <CardContent>
-                            <Typography variant="h6">
-                                フレームワーク
-                            </Typography>
-                            <Typography color="textSecondary">
-                                React
-                            </Typography>
-                        </CardContent>
-                    </Card>
-                </Box>
-            </Box>
-        </>
-    )
-}
+const Skills = () => {
+  return (
+    <>
+      <Box p={2}>
+        <Box display="flex" justifyContent="center" p={1}>
+          <Text as="h1">Skills</Text>
+        </Box>
+        <Box display="flex" justifyContent="center" p={1}>
+          <CardItem
+            label="言語"
+            description="JavaScript / TypeScript / Python"
+          />
+        </Box>
+        <Box display="flex" justifyContent="center" p={1}>
+          <CardItem
+            label="フレームワーク・ライブラリ"
+            description="React / Redux"
+          />
+        </Box>
+      </Box>
+    </>
+  );
+};
 
 export default Skills;

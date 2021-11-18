@@ -1,26 +1,25 @@
-import React from 'react';
-import About from './components/About';
-import Contact from './components/Contact';
-import Navbar from './components/Navbar';
-import Skills from './components/Skills';
-import ScrollUp from './utils/ScrollUp';
+import { Route, Routes } from "react-router-dom";
+import About from "./components/About";
+import Contact from "./components/Contact";
+import Home from "./components/Home";
+import Navbar from "./components/Navbar";
+import Skills from "./components/Skills";
+import ScrollUp from "./utils/ScrollUp";
 
-const App: React.FC = () => {
+const App = () => {
   return (
     <>
-      <section id='home'>
-        <Navbar />
-      </section>
-      <section id='about'>
-        <About />
-      </section>
-      <section id='skills'>
-        <Skills />
-      </section>
-      <section id='contact'>
-        <Contact />
-      </section>
-      <ScrollUp />
+      <Navbar />
+      <div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/skills" element={<Skills />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+
+        <ScrollUp />
+      </div>
     </>
   );
 };
