@@ -13,7 +13,7 @@
       "sizes": "120x120"
     }
   ],
-  "start_url": "https://takafumi-masuno.github.io/portfolio-site/",
+  "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"
