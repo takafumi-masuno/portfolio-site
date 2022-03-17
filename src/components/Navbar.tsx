@@ -55,6 +55,15 @@ const Navbar = () => {
             >
               <Button color="inherit">SKILLS</Button>
             </Link>
+            <Link
+              to="/trial"
+              style={{
+                textDecoration: "none",
+                color: "inherit",
+              }}
+            >
+              <Button color="inherit">TRIAL</Button>
+            </Link>
             <a
               href="https://masu-no-blog.com/"
               target="_blank"
